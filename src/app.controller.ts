@@ -16,11 +16,11 @@ export class AppController {
       event_id: '1',
       message: 'Generic breadcrumb message',
     };
-    client.addBreadcrumb(breadcrumb);
+    client.instance().addBreadcrumb(breadcrumb);
     client.debug('App Controller loaded');
     const scope = new Scope();
     scope.setTag('example', 'sampleTag');
-    client.captureException(new Error('sample error'), () => scope);
+    client.instance().captureException(new Error('sample error'), () => scope);
   }
 
   @Get()
